@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "technoblademod",
+  "version": "${version}",
+  "name": "TechnobladeMod",
+  "description": "Technoblade never dies!",
+  "authors": [
+    "Kaka"
+  ],
+  "contact": {
+    "sources": "https://github.com/KaKusaOAO/TechnobladeMod"
+  },
+  "license": "MIT",
+  "icon": "assets/technoblademod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.kakaouo.mods.technoblademod.fabric.ModFabricClient"
+    ],
+    "main": [
+      "com.kakaouo.mods.technoblademod.fabric.ModFabric"
+    ]
+  },
+  "mixins": [
+    "technoblademod.mixins.json",
+    "technoblademod.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": ">=1.18.2"
+  }
+}
