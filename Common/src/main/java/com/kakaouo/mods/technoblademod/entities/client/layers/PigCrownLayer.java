@@ -17,6 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.Pig;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class PigCrownLayer<T extends Pig, M extends PigModel<T>> extends RenderLayer<T, M> {
@@ -32,7 +33,11 @@ public class PigCrownLayer<T extends Pig, M extends PigModel<T>> extends RenderL
     public void render(@NotNull PoseStack poseStack, @NotNull MultiBufferSource multiBufferSource, int i, @NotNull T entity, float f, float g, float h, float j, float k, float l) {
         if (!entity.hasCustomName()) return;
         Component name = Objects.requireNonNull(entity.getCustomName());
-        if (!"Technoblade".equals(ChatFormatting.stripFormatting(name.getString()))) return;
+        // if (!"Technoblade".equals(ChatFormatting.stripFormatting(name.getString()))) return;
+
+        String str = ChatFormatting.stripFormatting(name.getString());
+        if (str == null) return;
+        if (!str.toLowerCase(Locale.ROOT).contains("techno")) return;
 
         this.getParentModel().copyPropertiesTo(this.model);
         this.model.prepareMobModel(entity, f, g, h);
